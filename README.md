@@ -1,4 +1,6 @@
-# safe-regex
+# safe-regex-redux
+
+[safe-regex](https://github.com/davisjam/safe-regex) wasn't being maintained and dependencies were becoming stale. I have taken it upon myself to maintain this critical crate and to ensure all dependecies stay updated and to add enhancements as I see fit. 
 
 Detect potentially
 [catastrophic](http://regular-expressions.mobi/catastrophic.html)
