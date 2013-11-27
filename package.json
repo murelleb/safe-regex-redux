@@ -1,6 +1,6 @@
 {
-  "name": "safe-regex",
-  "version": "2.1.2",
+  "name": "safe-regex-redux",
+  "version": "2.1.3",
   "description": "detect possibly catastrophic, exponential-time regular expressions",
   "main": "dist/index.js",
   "dependencies": {
@@ -44,9 +44,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/davisjam/safe-regex.git"
+    "url": "git://github.com/murelleb/safe-regex-redux.git"
   },
-  "homepage": "https://github.com/davisjam/safe-regex",
+  "homepage": "https://github.com/murelleb/safe-regex-redux",
   "keywords": [
     "catastrophic",
     "exponential",
@@ -55,9 +55,8 @@
     "sandbox"
   ],
   "author": {
-    "name": "James C. (Jamie) Davis",
-    "email": "davisjam@vt.edu",
-    "url": "http://people.cs.vt.edu/~davisjam"
+    "name": "Murell",
+    "email": "murrellblaise@gmail.com"
   },
   "license": "MIT"
 }
