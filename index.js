@@ -20,15 +20,13 @@ module.exports = function (re, opts) {
             if (reps > replimit) return false;
         }
         
-        if (node.options) {
-            for (var i = 0, len = node.options.length; i < len; i++) {
-                var ok = walk({ stack: node.options[i] }, starHeight);
-                if (!ok) return false;
-            }
+        var options = node.options || (node.value && node.value.options) || [];
+        for (var i = 0, len = options.length; i < len; i++) {
+            var ok = walk({ stack: options[i] }, starHeight);
+            if (!ok) return false;
         }
-        var stack = node.stack || (node.value && node.value.stack);
-        if (!stack) return true;
-        
+
+        var stack = node.stack || (node.value && node.value.stack) || [];
         for (var i = 0; i < stack.length; i++) {
             var ok = walk(stack[i], starHeight);
             if (!ok) return false;
