@@ -31,6 +31,12 @@ module.exports = function (re, opts) {
             var ok = walk(stack[i], starHeight);
             if (!ok) return false;
         }
+
+				/* Walk any values for safety. Undocumented but it seems REPETITION can have one, see ret #9. */
+				if (retToken.value && typeof(retToken.value) === 'object') {
+					var ok = safeWalk(retToken.value);	
+					if (!ok) return false;
+				}	
         
         return true;
     })(re, 0);
