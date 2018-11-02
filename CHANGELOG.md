@@ -2,6 +2,13 @@
 
 ## v2.0
 
+## v2.0.1
+
+1. Fix parsing bug introduced during switch to regexp-tree.
+
+Contributors:
+- [davisjam](https://github.com/davisjam)
+
 ## v2.0.0
 
 1. Update README.
