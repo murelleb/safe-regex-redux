@@ -7,7 +7,7 @@
     "regexp-tree": "~0.1.1"
   },
   "devDependencies": {
-    "tape": "^3.5.0"
+    "tape": "^4.10.1"
   },
   "scripts": {
     "test": "tape test/*.js"
