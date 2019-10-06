@@ -1,5 +1,4 @@
 var safe = require('../');
-var test = require('tape');
 
 var good = [
     /\bOakland\b/,
@@ -15,10 +14,9 @@ var good = [
     '^@types/query-string'
 ];
 
-test('safe regex', function (t) {
-    t.plan(good.length);
+test('safe regex', function () {
     good.forEach(function (re) {
-        t.equal(safe(re), true);
+        expect(safe(re)).toBe(true);
     });
 });
 
@@ -40,10 +38,9 @@ var bad = [
     '(a+)+'
 ];
 
-test('unsafe regex', function (t) {
-    t.plan(bad.length);
+test('unsafe regex', function () {
     bad.forEach(function (re) {
-        t.equal(safe(re), false);
+        expect(safe(re)).toBe(false);
     });
 });
 
@@ -54,9 +51,8 @@ var invalid = [
     '[abc'
 ];
 
-test('invalid regex', function (t) {
-    t.plan(invalid.length);
+test('invalid regex', function () {
     invalid.forEach(function (re) {
-        t.equal(safe(re), false);
+        expect(safe(re)).toBe(false);
     });
 });
