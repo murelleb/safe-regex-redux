@@ -13,11 +13,15 @@ Use [vuln-regex-detector](https://github.com/davisjam/vuln-regex-detector) for i
 
 # Example
 
+Suppose you have a script named `safe.js`:
+
 ``` js
 var safe = require('safe-regex');
 var regex = process.argv.slice(2).join(' ');
 console.log(safe(regex));
 ```
+
+This is its behavior:
 
 ```
 $ node safe.js '(x+x+)+y'
