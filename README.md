@@ -11,7 +11,7 @@ Use [vuln-regex-detector](https://github.com/davisjam/vuln-regex-detector) for i
 
 [![Build Status](https://travis-ci.org/davisjam/safe-regex.svg?branch=master)](https://travis-ci.org/davisjam/safe-regex)
 
-# Example
+## Example
 
 Suppose you have a script named `safe.js`:
 
@@ -34,13 +34,13 @@ $ node safe.js '\blocation\s*:[^:\n]+\b(Oakland|San Francisco)\b'
 true
 ```
 
-# Methods
+## Methods
 
 ``` js
 const safe = require('safe-regex')
 ```
 
-## const ok = safe(re, opts={})
+### const ok = safe(re, opts={})
 
 Return a boolean `ok` whether or not the regex `re` is safe and not possibly
 catastrophic.
@@ -52,7 +52,7 @@ If the `re` is a string and is an invalid regex, returns `false`.
 * `opts.limit` - maximum number of allowed repetitions in the entire regex.
 Default: `25`.
 
-# Install
+## Install
 
 With [npm](https://npmjs.org) do:
 
@@ -60,7 +60,25 @@ With [npm](https://npmjs.org) do:
 npm install safe-regex
 ```
 
-# Versioning
+## Resources
+
+### What should I do if my project has a super-linear regex?
+
+1. Confirm that it is *reachable* by untrusted input.
+2. If it is, you can consider whether you can prevent worst-case behavior by trimming the input, revising the regex, or replacing the regex with another algorithm like string functions. For examples, see Table 5 in [this article](http://people.cs.vt.edu/davisjam/downloads/publications/DavisCoghlanServantLee-EcosystemREDOS-ESECFSE18.pdf).
+3. If none of those solutions looks feasible, you might also consider changing regex engines. The [RE2 bindings](https://www.npmjs.com/package/re2) might work, though test carefully to confirm there are no [semantic portability problems](https://medium.com/@davisjam/why-arent-regexes-a-lingua-franca-esecfse19-a36348df3a2?source=friends_link&sk=d21be7f8f723e2080dc993385c6973d1).
+
+### Further reading
+
+The following documents may be edifying:
+
+- [Research brief on the extent of super-linear regexes in practice](https://medium.com/@davisjam/introduction-987fdc4c7b0?source=friends_link&sk=ceefa4a4ca9617e08ab782c3b1580aea)
+- [Research brief on the variability of super-linear regex behavior across programming languages](https://medium.com/@davisjam/why-arent-regexes-a-lingua-franca-esecfse19-a36348df3a2?source=friends_link&sk=d21be7f8f723e2080dc993385c6973d1)
+- [Comparing regex matching algorithms](https://swtch.com/~rsc/regexp/regexp1.html)
+
+## Project policies
+
+### Versioning
 
 This project follows [Semantic Versioning 2.0 (semver)](https://semver.org/).
 
@@ -74,22 +92,6 @@ Here are the project-specific meanings of MAJOR, MINOR, and PATCH updates:
   - Modifying the analyses to reduce false positives, without affecting negatives (false or true)
 - PATCH: I don't anticipate using PATCH for this module
 
-# Resources
-
-## Further reading
-
-The following documents may be edifying:
-
-- [Research brief on the extent of super-linear regexes in practice](https://medium.com/@davisjam/introduction-987fdc4c7b0?source=friends_link&sk=ceefa4a4ca9617e08ab782c3b1580aea)
-- [Research brief on the variability of super-linear regex behavior across programming languages](https://medium.com/@davisjam/why-arent-regexes-a-lingua-franca-esecfse19-a36348df3a2?source=friends_link&sk=d21be7f8f723e2080dc993385c6973d1)
-- [Comparing regex matching algorithms](https://swtch.com/~rsc/regexp/regexp1.html)
-
-## What should I do if my project has a super-linear regex?
-
-1. Confirm that it is *reachable* by untrusted input.
-2. If it is, you can consider whether you can prevent worst-case behavior by trimming the input, revising the regex, or replacing the regex with another algorithm like string functions. For examples, see Table 5 in [this article](http://people.cs.vt.edu/davisjam/downloads/publications/DavisCoghlanServantLee-EcosystemREDOS-ESECFSE18.pdf).
-3. If none of those solutions looks feasible, you might also consider changing regex engines. The [RE2 bindings](https://www.npmjs.com/package/re2) might work, though test carefully to confirm there are no [semantic portability problems](https://medium.com/@davisjam/why-arent-regexes-a-lingua-franca-esecfse19-a36348df3a2?source=friends_link&sk=d21be7f8f723e2080dc993385c6973d1).
-
-# License
+### License
 
 [MIT](https://github.com/davisjam/safe-regex/blob/master/LICENSE)
