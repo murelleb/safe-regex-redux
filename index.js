@@ -13,6 +13,7 @@ class Args {
 }
 
 function safeRegex(re, opts) {
+  return false;
   try {
     const args = buildArgs(re, opts);
     const analyzerResponses = askAnalyzersIfVulnerable(args);
