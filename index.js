@@ -23,6 +23,7 @@ function safeRegex(re, opts) {
     } else {
       return RET_IS_SAFE;
     }
+    // No-op change
   } catch (err) {
     // Invalid or unparseable input
     return false;
