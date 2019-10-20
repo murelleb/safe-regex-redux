@@ -58,4 +58,4 @@ npm install safe-regex
 
 # License
 
-MIT
+[MIT](https://github.com/davisjam/safe-regex/blob/master/LICENSE)
