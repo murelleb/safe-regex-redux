@@ -9,7 +9,7 @@ regular expressions by limiting the
 WARNING: This module has both false positives and false negatives.
 Use [vuln-regex-detector](https://github.com/davisjam/vuln-regex-detector) for improved accuracy.
 
-[![build status](https://secure.travis-ci.org/substack/safe-regex.png)](http://travis-ci.org/substack/safe-regex)
+[![Build Status](https://travis-ci.com/davisjam/safe-regex.svg?branch=master)](https://travis-ci.com/davisjam/safe-regex)
 
 # Example
 
