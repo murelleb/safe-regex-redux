@@ -5,18 +5,117 @@ const REPETITION_TOO_MUCH = REPETITION_LIMIT + 1;
 
 // TODO Named character classes
 
+test("The full set of JS regex features are supported", () => {
+  /**
+   * A list of linear-time regexes using a reasonably exhaustive
+   * set of the supported JS regex features.
+   * cf. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+   *
+   * The purpose of this list is to check for
+   * full regex syntax support.
+   */
+  const diverseLinTimeRegexes = [
+    /* Truly Regular Expressions */
+
+    // Conjunction
+    /a/,
+    /abc/,
+
+    // Simple zero-width assertions
+    /^a/,
+    /a$/,
+
+    // Quantifiers
+    /^a*/,
+    /^a+/,
+    /a?/,
+    /x{5}/,
+    /x{5,}/,
+    /x{5,10}/,
+
+    // Grouping constructs
+    /(x)/,
+    /(?:x)/,
+
+    // Disjunction
+    /x|y/,
+
+    // Built-in character classes
+    /.\./,
+    /[\b]/,
+    /\b/,
+    /\B/,
+    /\cA/,
+    /\d/,
+    /\D/,
+    /\f/,
+    /\n/,
+    /\r/,
+    /\s/,
+    /\S/,
+    /\t/,
+    /\v/,
+    /\w/,
+    /\W/,
+    /\0/,
+    /\x00/,
+    /\u0000/,
+    /\u{0000}/u,
+
+    // Custom character classes
+    /[xyz]/,
+    /[x-z]/,
+    /[^xyz]/,
+    /[^x-z]/,
+
+    /* Extended features */
+
+    // Backreferences
+    /(x) \1/,
+
+    // Lookaround assertions
+    /x(?=y)/,
+    /x(?!y)/,
+
+    /* Added in ECMAScript 2018 */
+
+    // Lookbehind assertions
+    /(?<=y)x/,
+    /(?!<y)x/,
+
+    // Named capture groups
+    /(?<year>\d{4})/,
+    /(?<year>a)\k<year>/,
+    // Tests related to bug #26
+    /(?<year>test?)/,
+    /(?<year>test*)/,
+    /(?<year>test)*/,
+  ];
+
+  diverseLinTimeRegexes.forEach(re => {
+    expect(safeRegex(re)).toBe(true);
+  });
+});
+
 test("linear-time regexes are safe", () => {
   const linTime = [
-    // regular RE's
+    /**
+     * No false positives
+     */
+
+    // Standard regex features
     /a/,
     /a*/,
-    /a+/,
+    /^a*/,
+    /^a+$/,
+    /a+$/,
     /a?/,
     /a{3,5}/,
     /a|b/,
     /(ab)/,
     /(ab)\1/,
     /\bOakland\b/,
+    /^((a+)|(b+))/,
     /(a+)|(b+)/,
 
     // RE's in a string
