@@ -86,6 +86,10 @@ test("The full set of JS regex features are supported", () => {
     // Named capture groups
     /(?<year>\d{4})/,
     /(?<year>a)\k<year>/,
+    // Tests related to bug #26
+    /(?<year>test?)/,
+    /(?<year>test*)/,
+    /(?<year>test)*/,
   ];
 
   diverseLinTimeRegexes.forEach(re => {
