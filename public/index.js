@@ -8,9 +8,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var analyzer = require('./lib/analyzer');
+var analyzer = require('./analyzer');
 
-var analyzerFamily = require('./lib/analyzer-family');
+var analyzerFamily = require('./analyzer-family');
 
 var DEFAULT_SAFE_REP_LIMIT = 25;
 var RET_IS_SAFE = true;
