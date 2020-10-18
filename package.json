@@ -1,8 +1,8 @@
 {
-  "name": "copy-safe-regex",
-  "version": "2.1.1",
+  "name": "safe-regex",
+  "version": "2.1.2",
   "description": "detect possibly catastrophic, exponential-time regular expressions",
-  "main": "index.js",
+  "main": "lib/index.js",
   "dependencies": {
     "babel-jest": "^26.3.0",
     "regexp-tree": "~0.1.1"
@@ -14,11 +14,11 @@
     "jest": "^24.9.0"
   },
   "scripts": {
-    "build": "babel src -d public -w",
+    "build": "babel src -d lib",
+    "prepublishOnly": "npm run build",
     "test": "jest src/*",
-    "test-artifact": "jest public/*" 
+    "test-artifact": "jest lib/*"
   },
-  
   "jest": {
     "moduleFileExtensions": [
       "js"
