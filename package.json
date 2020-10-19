@@ -2,7 +2,7 @@
   "name": "safe-regex",
   "version": "2.1.2",
   "description": "detect possibly catastrophic, exponential-time regular expressions",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "dependencies": {
     "babel-jest": "^26.3.0",
     "regexp-tree": "~0.1.1"
@@ -14,10 +14,10 @@
     "jest": "^24.9.0"
   },
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "babel src -d dist",
     "prepublishOnly": "npm run build",
     "test": "jest src/*",
-    "test-artifact": "jest lib/*"
+    "test-artifact": "jest dist/*"
   },
   "jest": {
     "moduleFileExtensions": [
