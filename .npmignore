@@ -1,4 +1,4 @@
 .vscode
 coverage
 /src
-/lib/test/
+/dist/test/
