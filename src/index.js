@@ -1,5 +1,5 @@
-const analyzer = require('./lib/analyzer');
-const analyzerFamily = require('./lib/analyzer-family');
+const analyzer = require('./analyzer');
+const analyzerFamily = require('./analyzer-family');
 
 const DEFAULT_SAFE_REP_LIMIT = 25;
 const RET_IS_SAFE = true;
